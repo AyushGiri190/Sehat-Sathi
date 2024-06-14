@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skin Cancer analysis</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+          
+.img59{
+    position: relative;
+    bottom: 0px;
+    /* width: 100vw; */
+    opacity: 0.2;
+    /* z-index: -1; */
+    /* height: 110vh; */
+    width:100vw;
+    background-size: cover;
+
+}
+
+#imgcont{
+    position: absolute;
+    z-index: -1;
+    height: 120vh;
+    width: 100vw;
+    overflow: hidden;
+}
+   
+    </style>
+
+</head>
+
+
+<body>
+    <div class="navbar">
+        <img src="./static/images/logo3.png" id="img12">
+        <a href="#aboutus2" class="navtext">About us</a>
+        <!-- <span class="divider"></span> -->
+        <a href="{{ url_for('home') }}" class="navtext">Home</a>
+        <!-- <span class="divider"></span> -->
+        <a href="#r&p" class="navtext">Contact us</a>
+        <img src="./static/images/user.png" id="img13">
+        <!-- <span class="divider"></span> -->
+        <a href="#r&p" class="navtext" id="right1">Username</a>
+        <!-- <span class="divider"></span> -->
+        <!-- <a href="#footer" class="navtext">Contact us</a> -->
+        <!-- <span class="divider"></span> -->
+        <!-- <button id="login">Login</button> -->
+    </div>
+    <div class="bg1"></div>
+
+    <div id="heading">
+        <img src="./static/images/lungs.png" id="brain1">
+        <p id="head-img">Skin Cancer analysis</p>
+    </div>
+    <div class="hero">
+
+        <label for="input-file" id="drop-area">
+            <span class="title">Upload Image</span>
+            <input type="file" accept="image/*" id="input-file" hidden>
+            <div id="img-view">
+                <i class="fa fa-cloud-upload"></i>
+                <p>Drag and drop or click here</br>to upload image/</p>
+                <span>Upload any image from desktop</span>
+                
+            </div>
+            <img id="img-preview" class="img-preview" hidden>
+        </label>
+        
+        <div class="pt">
+            <p id="pd">Prediction</p>
+            <p id ="PredictionText"></p>
+            <br>
+            <p id ="extra" ></p>
+        </div>
+    </div>
+    
+
+    <div id="imgcont">
+
+        <img src="./static/images/img/skin-cancer-symptoms-07.jpg" alt="" class="img59">
+    </div>
+    <footer>
+        <div class="waves">
+            <div class="wave" id="wave1"></div>
+            <div class="wave" id="wave2"></div>
+            <div class="wave" id="wave3"></div>
+            <div class="wave" id="wave4"></div>
+        </div>
+        <ul class="social-icon">
+            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="#"><i class="fa fa-facebook-square"></i></a></li>
+            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+        </ul>
+    </footer>
+
+
+
+    </div>
+    <script src="./static/script/scriptskin.js"></script>
+</body>
+
+</html>

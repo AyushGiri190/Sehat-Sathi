@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home page</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/page2.css') }}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    min-height: 100vh;
+    background-color: #f4f4f4;
+    flex-wrap: wrap;
+    overflow-x: hidden;
+  }
+
+  body{
+    background: linear-gradient(300deg,#50b574,#3c5f9f);
+    background-size: 400% 400%;
+    animation: gradient-animation 12s ease infinite;
+    height: 100vh;
+  }
+  
+  @keyframes gradient-animation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  .card {
+    width: 300px;
+    height: 200px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    /* margin-top: 200px; */
+    position: relative;
+    /* top:50px; */
+  }
+  .card2 {
+    width: 300px;
+    height: 200px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    /* margin-top: 200px; */
+    position: relative;
+    /* top:50px; */
+
+
+  }
+
+  .card:hover {
+    transform: translateY(-10px);
+  }
+  .card2:hover {
+    transform: translateY(-10px);
+  }
+
+  .card:hover .card-content{
+    /* background-color: rgb(50, 77, 63);rgb(112, 203, 137) */
+    background-color: rgb(105, 189, 126);
+    color:white;
+  }
+  .card2:hover .card-content{
+    /* background-color: rgb(55, 71, 86);rgb(168, 215, 251) */
+    background-color: rgb(146, 186, 217);
+    color:white;
+  }
+  .card-title .card-description{
+    /* background-color: rgba(0, 0, 0, 0.1); */
+    color:white;
+  }
+
+  #symptoms:hover
+  {
+    background-color: rgb(112, 203, 137);
+    color: aliceblue;
+  }
+
+  #xray:hover
+  {
+    background-color: rgb(168, 215, 251);
+    color: aliceblue;
+  }
+  #xray2:hover
+  {
+    background-color: rgb(168, 215, 251);
+    /* color: aliceblue; */
+  }
+
+  #xray2{
+    position: absolute;
+    top:700px;
+    margin-bottom: 1000px;
+    /* top: 0; */
+  }
+
+
+  .card-content {
+    padding: 20px;
+    transition: background-color 0.3s ease;
+  }
+
+
+  .card-title {
+    margin: 0;
+    font-size: 18px;
+    color: #333;
+  }
+
+  .card-description {
+    margin: 10px 0 0;
+    font-size: 14px;
+    color: #666;
+  }
+
+  /* .card:hover .card-content { */
+    /* background-color: rgba(0, 0, 0, 0.1); */
+    /* color: white; Text color changes to white on hover */
+  /* } */
+
+  /* .card:hover + #Ask{
+    color:white;
+  } */
+
+  #ask1{
+    height: 100px;
+    margin-left: 90px;
+    
+  }
+
+  #brain1{
+    height: 100px;
+    margin-left: 90px;
+    
+  }
+
+  #breast1{
+    height: 100px;
+    margin-left: 100px;
+    
+  }
+
+  #lungs1{
+    height: 100px;
+    margin-left: 90px;
+    
+  }
+
+
+
+  .container1{
+    /* height: 100vh; */
+
+    margin-top: 400px;
+    display: flex;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+    /* position: absolute; */
+    /* position: relative; */
+    /* top: 100px; */
+    /* z-index: 10000; */
+    
+  }
+
+#text-container{
+    /* z-index: -1; */
+    position: absolute;
+    top: 200px;
+    color: aliceblue;
+    font-family: helvetica;
+    font-size: 2vw;
+    font-weight: bold;
+}
+
+
+</style>
+</head>
+<body>
+    <div id="text-container" class="text-container"></div>
+    <script>
+const sentences = [
+  "Your Health, Instantly Delivered: SehatSaathi!",
+  "Skip the Queue, Embrace Instant Care with SehatSaathi!",
+  "Healthcare at Your Fingertips: SehatSaathi, Your Trusted Companion!",
+  "Swift Solutions for Better Health: SehatSaathi Leading the Way!",
+  "SehatSaathi : Healthcare, Anytime, Anywhere"
+];
+
+const textContainer = document.getElementById("text-container");
+
+function typeSentence(sentence) {
+  return new Promise(resolve => {
+    let index = 0;
+    const intervalId = setInterval(() => {
+      textContainer.textContent = sentence.slice(0, index + 1);
+      index++;
+      if (index === sentence.length) {
+        clearInterval(intervalId);
+        setTimeout(() => {
+          resolve();
+        }, 1000); // Pause for 1 second after typing
+      }
+    }, 100); // Typing speed (100ms per character)
+  });
+}
+
+async function typeAllSentences() {
+  while (true) {
+    for (const sentence of sentences) {
+      await typeSentence(sentence);
+      textContainer.textContent = "";
+      await new Promise(resolve => setTimeout(resolve, 1000));
+    }
+  }
+}
+
+// Start typing all sentences
+typeAllSentences();
+
+    </script>
+    <div class="navbar">
+        <img src="./static/images/logo3.png" id="img12">
+        <a href="#aboutus2" class="navtext">About us</a>
+        <!-- <span class="divider"></span> -->
+        <a href="{{ url_for('home') }}" class="navtext">Home</a>
+        <!-- <span class="divider"></span> -->
+        <a href="#r&p" class="navtext">Contact us</a>
+        <img src="./static/images/user.png" id="img13">
+        <!-- <span class="divider"></span> -->
+        <a href="#r&p" class="navtext" id="right1">Username</a>
+        <!-- <span class="divider"></span> -->
+        <!-- <a href="#footer" class="navtext">Contact us</a> -->
+        <!-- <span class="divider"></span> -->
+        <!-- <button id="login">Login</button> -->
+    </div>
+
+    <!-- <img src="img/logo3.png" id="img12"> -->
+  <div class="container1">  
+  <div class="card" id="symptoms">
+    <div class="card-content">
+      <a href="{{ url_for('symp') }}">
+      <h2 class="card-title" id="Ask">Ask SehatSaathi</h2>
+      <p class="card-description">Symptom analysis</p>
+     
+    </div>
+    <img src="./static/images/ask.png" id="ask1">
+  </a>
+  </div>
+
+  <div class="card2" style="margin: 0 20px;" id="xray">
+    <div class="card-content">
+      <a href="{{ url_for('brain_tumour') }}">
+      <h2 class="card-title">Brain Tumour analysis</h2>
+      <p class="card-description">Upload xray image</p>
+    </div>
+   
+    <img src="./static/images/brain.png" id="brain1">
+    </a>
+  </div>
+  <div class="card2" id="xray">
+    <div class="card-content">
+      <a href="{{ url_for('breast_cancer') }}">
+      <h2 class="card-title">Breast Cancer analysis</h2>
+      <p class="card-description">Upload xray image</p>
+    </div>
+    <img src="./static/images/body.png" id="breast1">
+  </a>
+
+  </div>
+  <div class="card2" style="margin: 0 20px;" id="xray">
+    <div class="card-content">
+      <a href="{{ url_for('lung_cancer') }}">
+      <h2 class="card-title">Lung Cancer</h2>
+      <p class="card-description">Upload xray image</p>
+    </div>
+    <img src="./static/images/lungs.png" id="lungs1">
+  </a>
+  </div>
+</div>
+  <div class="card2" style="margin: 0 20px;" id="xray2">
+    <div class="card-content">
+      <a href="{{ url_for('skin_cancer') }}">
+      <h2 class="card-title">Skin Cancer</h2>
+      <p class="card-description">Upload image</p>
+    </div>
+    <img src="./static/images/skin-cancer.png" id="lungs1">
+  </a>
+  </div>
+
+  <div id="imgcont">
+
+    <img src="./static/images/medicalbg.jpg" alt="" class="img59">
+</div>
+<footer>
+    <div class="waves">
+        <div class="wave" id="wave1"></div>
+        <div class="wave" id="wave2"></div>
+        <div class="wave" id="wave3"></div>
+        <div class="wave" id="wave4"></div>
+    </div>
+    <ul class="social-icon">
+        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+        <li><a href="#"><i class="fa fa-facebook-square"></i></a></li>
+        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+    </ul>
+</footer>
+</body>
+</html>

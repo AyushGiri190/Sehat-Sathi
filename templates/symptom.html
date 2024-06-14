@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Care Center</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        .logo {
+            width: 0px;
+            /* height: 50px;  */
+            /* color: black; */
+            margin-top: 0;
+            margin-left: 2px; 
+        }
+        .myimg {
+            width: 50px;
+            /* height: 50px; */
+            /* border: 2px solid black; */
+            /* border-radius: 25px; */
+        }
+
+        #btnp{
+            background: #25c956;
+            border: none;
+        }
+
+        #btnp:hover{
+            background: #21b14c;
+            border: none;
+        }
+
+        #ai1{
+            height:100px;
+            position:relative;
+            left: 600px;
+        }
+
+        body{
+    /* background-image: url('doctor-from-future-concept.jpg'); */
+    background: linear-gradient(300deg,#388051,#3c5f9f);
+    background-size: 400% 400%;
+    /* background-size:; */
+    animation: gradient-animation 15s ease infinite;
+    /* overflow:scroll; */
+    /* height: 100vh; */
+    margin:0;
+    padding: 0;
+    overflow-x: hidden;
+    color:antiquewhite;
+    font-family: helvetica,'poppins',arialZ;
+  }
+
+/* .bg1{ */
+    /* background: linear-gradient(300deg,#50b573b2,#3c5f9fa8); */
+    /* background-size: 400% 400%; */
+    /* animation: gradient-animation 15s ease infinite; */
+    /* height: 10vh; */
+    /* z-index: -1000; */
+    /* position: absolute; */
+    /* top:500px; */
+    /* background: #00000037; */
+
+/* }   */
+  
+  @keyframes gradient-animation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+      /* color:hsl(164, 100%, 50%); */
+    }
+  }
+
+
+
+  .navbar {
+    width: 100vw;
+    background-color: rgb(65, 82, 78);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    padding: 5px;
+    z-index: 1000;
+}
+
+#img12
+{
+  height: 30px;
+  /* position:absolute; */
+  /* top:20px; */
+  /* left: 680px; */
+  /* margin-left: 500px; */
+  /* margin: auto; */
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 30px;
+  /* justify-self: flex-start; */
+}
+
+#img13
+{
+  height: 30px;
+  /* position:absolute; */
+  /* top:20px; */
+  /* left: 680px; */
+  /* margin-left: 500px; */
+  /* margin: auto; */
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 700px;
+  /* position: relative; */
+  /* left: 200px; */
+  /* margin-left: 800px; */
+  /* justify-self: flex-start; */
+}
+
+
+.navtext {
+    color: white;
+    text-decoration: none;
+    font-family: Helvetica, MontrealMed;
+    font-weight: 600;
+    font-size: large;
+    /* padding-top:auto; */
+    /* padding-bottom: auto; */
+    /* padding-left: 20px; */
+    /* padding-right: 10px; */
+    /* margin-right: 50px; */
+    margin-left: 20px;
+    transition: text-shadow 0.3s ease-in-out;
+}
+
+.navtext:hover {
+    /* box-shadow: 0 2px 50px 10px rgb(37, 61, 53); */
+    /* color: rgb(96, 96, 96); */
+    /* text-shadow: 0px 0px 1px #ffffff; */
+    /* text-shadow: 0px 0px 10px #ffffff66; */
+    cursor: pointer;
+}
+
+
+
+/* Underline styles */
+a {
+    display: block;
+    position: relative;
+    padding: 0.2em 0;
+  }
+
+
+  /* Fade in */
+  a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0.1em;
+    background-color: hotpink;
+    opacity: 0;
+    transition: opacity 300ms, transform 300ms;
+  }
+  
+  a:hover::after,
+  a:focus::after {
+    opacity: 1;
+    transform: translate3d(0, 0.2em, 0);
+  }
+
+
+    </style>
+</head>
+<body>
+<!-- Navbar -->
+<!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark"> -->
+    <!-- <div class="container-fluid"> -->
+        <!-- Logo at the top-left corner -->
+        <!-- <div class="logo">
+            <img class="myimg" src="{{ url_for('static', filename='/images/logo3.png') }}" alt="">
+        </div>
+        <a class="navbar-brand" href="#">SehatSaathi</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+    </div>
+</nav> -->
+<div class="navbar">
+    <img src="./static/images/logo3.png" id="img12">
+    <a href="#aboutus2" class="navtext">About us</a>
+    <!-- <span class="divider"></span> -->
+    <a href="{{ url_for('home') }}" class="navtext">Home</a>
+    <!-- <span class="divider"></span> -->
+    <a href="#r&p" class="navtext">Contact us</a>
+    <img src="./static/images/user.png" id="img13">
+    <!-- <span class="divider"></span> -->
+    <a href="#r&p" class="navtext" id="right1">Username</a>
+    <!-- <span class="divider"></span> -->
+    <!-- <a href="#footer" class="navtext">Contact us</a> -->
+    <!-- <span class="divider"></span> -->
+    <!-- <button id="login">Login</button> -->
+</div>
+
+<!-- main form of page -->
+<br>
+<br>
+<br>
+<br>
+
+<h1 class="mt-4 my-4 text-center text-green">Ask SehatSaathi</h1>
+<div class="container my-4 mt-4" style="background: rgb(39, 51, 66); color: rgb(235, 234, 234); border-radius: 15px; padding: 40px;">
+    <form action="/symptom" method="post">
+<!--        <div class="form-group">-->
+<!--            <label for="symptoms">Select Symptoms:</label>-->
+<!--            <input type="text" class="form-control" id="symptoms" name="symptoms" placeholder="Type symptoms such as itching, sleeping, aching, etc">-->
+<!--        </div>-->
+
+
+    <div class="container">
+        <label for="dInput">Choose the proper symptom :</label>
+        <input type="text" id="dInput" class="form-control" list="diseaseList" name="symptoms" placeholder="What are you feeling ...">
+
+        <datalist id="diseaseList">
+            <option value="itching">itching</option>
+            <option value="skin_rash">skin_rash</option>
+            <option value="nodal_skin_eruptions">nodal_skin_eruptions</option>
+            <option value="continuous_sneezing">continuous_sneezing</option>
+            <option value="shivering">shivering</option>
+            <!-- Add more options as needed -->
+        </datalist>
+        <select id="selectedSymptoms" multiple></select>
+    </div>
+
+    <script>
+        var currentWord = '';
+        document.getElementById('dInput').addEventListener('keydown', function(event) {
+        var input = this.value.trim();
+        var keyCode = event.data ? event.data.charCodeAt(0) : event.keyCode;
+        if (keyCode === 13) {
+            addSymptom(currentWord);
+            currentWord = '';
+            this.value = '';
+        }
+
+        else {
+            currentWord = input;
+            if (keyCode !== null) {
+                showSuggestions(currentWord);
+            }
+        }
+        });
+
+        function addSymptom(symptom) {
+            var selectedSymptoms = document.getElementById('selectedSymptoms');
+            if (diseaseOptions.includes(symptom)) {
+                var option = document.createElement('option');
+                option.value = symptom;
+                option.text = symptom;
+                selectedSymptoms.appendChild(option);
+            } else {
+                alert('Symptom "' + symptom + '" is not present in the list.');
+            }
+        }
+
+        function showSuggestions(input) {
+            var datalist = document.getElementById('diseaseList');
+            datalist.innerHTML = '';
+
+            // Filter suggestions based on input and add them to the datalist
+            var filteredOptions = diseaseOptions.filter(option =>
+                option.toLowerCase().startsWith(input.toLowerCase())
+            );
+
+            filteredOptions.forEach(function(option) {
+                var optionElement = document.createElement('option');
+                optionElement.value = option;
+                datalist.appendChild(optionElement);
+            });
+        }
+
+        var diseaseOptions = [
+            'itching', 'skin_rash', 'nodal_skin_eruptions', 'continuous_sneezing', 'shivering',
+            'chills', 'joint_pain', 'stomach_pain', 'acidity', 'ulcers_on_tongue', 'muscle_wasting',
+            'vomiting', 'burning_micturition', 'spotting_ urination', 'fatigue', 'weight_gain', 'anxiety',
+            'cold_hands_and_feets', 'mood_swings', 'weight_loss', 'restlessness', 'lethargy', 'patches_in_throat',
+            'irregular_sugar_level', 'cough', 'high_fever', 'sunken_eyes', 'breathlessness', 'sweating',
+            'dehydration', 'indigestion', 'headache', 'yellowish_skin', 'dark_urine', 'nausea',
+            'loss_of_appetite', 'pain_behind_the_eyes', 'back_pain', 'constipation', 'abdominal_pain',
+            'diarrhoea', 'mild_fever', 'yellow_urine', 'yellowing_of_eyes', 'acute_liver_failure',
+            'fluid_overload', 'swelling_of_stomach', 'swelled_lymph_nodes', 'malaise', 'blurred_and_distorted_vision',
+            'phlegm', 'throat_irritation', 'redness_of_eyes', 'sinus_pressure', 'runny_nose', 'congestion',
+            'chest_pain', 'weakness_in_limbs', 'fast_heart_rate', 'pain_during_bowel_movements', 'pain_in_anal_region',
+            'bloody_stool', 'irritation_in_anus', 'neck_pain', 'dizziness', 'cramps', 'bruising', 'obesity',
+            'swollen_legs', 'swollen_blood_vessels', 'puffy_face_and_eyes', 'enlarged_thyroid', 'brittle_nails',
+            'swollen_extremeties', 'excessive_hunger', 'extra_marital_contacts', 'drying_and_tingling_lips',
+            'slurred_speech', 'knee_pain', 'hip_joint_pain', 'muscle_weakness', 'stiff_neck', 'swelling_joints',
+            'movement_stiffness', 'spinning_movements', 'loss_of_balance', 'unsteadiness', 'weakness_of_one_body_side',
+            'loss_of_smell', 'bladder_discomfort', 'foul_smell_of urine', 'continuous_feel_of_urine',
+            'passage_of_gases', 'internal_itching', 'toxic_look_(typhos)', 'depression', 'irritability',
+            'muscle_pain', 'altered_sensorium', 'red_spots_over_body', 'belly_pain', 'abnormal_menstruation',
+            'dischromic _patches', 'watering_from_eyes', 'increased_appetite', 'polyuria', 'family_history',
+            'mucoid_sputum', 'rusty_sputum', 'lack_of_concentration', 'visual_disturbances', 'receiving_blood_transfusion',
+            'receiving_unsterile_injections', 'coma', 'stomach_bleeding', 'distention_of_abdomen',
+            'history_of_alcohol_consumption', 'fluid_overload', 'blood_in_sputum', 'prominent_veins_on_calf',
+            'palpitations', 'painful_walking', 'pus_filled_pimples', 'blackheads', 'scurring', 'skin_peeling',
+            'silver_like_dusting', 'small_dents_in_nails', 'inflammatory_nails', 'blister', 'red_sore_around_nose',
+            'yellow_crust_ooze', 'prognosis'
+        ];
+    </script>
+
+        <br>
+        <button type="submit" class="btn btn-danger btn-lg" style="width: 100%; padding: 14px; margin-bottom: 5px;" id="btnp">Predict</button>
+
+    </form>
+
+</div>
+
+{% if predicted_disease %}
+<!-- Results -->
+<img src="./static/images/logo3.png" id="ai1"> 
+<h1 class="text-center my-4 mt-4">SehatSaathi Results</h1>
+<div class="container">
+    <p><strong>Predicted Disease:</strong> {{ predicted_disease }}</p>
+    <p><strong>Description:</strong> {{ dis_des }}</p>
+    <p><strong>Precautions:</strong></p>
+    <ul>
+        {% for precaution in my_precautions %}
+            <li>{{ precaution }}</li>
+        {% endfor %}
+    </ul>
+    <p><strong>Medications:</strong></p>
+    <ul>
+        {% for medication in medications %}
+            <li>{{ medication }}</li>
+        {% endfor %}
+    </ul>
+    <p><strong>Recommended Diets:</strong></p>
+    <ul>
+        {% for diet in my_diet %}
+            <li>{{ diet }}</li>
+        {% endfor %}
+    </ul>
+    <p><strong>Recommended Workouts:</strong></p>
+    <ul>
+        {% for workout in workout %}
+            <li>{{ workout }}</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endif %}
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+</body>
+</html>

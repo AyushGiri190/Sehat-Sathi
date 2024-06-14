@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up Form</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+
+    <style>
+        #content{
+            height:534px;
+        }
+
+        #logo{
+            height: 500px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form-box">
+            <h1 id="title">Sign Up</h1>
+            <form id="signupForm" onsubmit="return validateForm()" action="/login" method="post">
+                <div class="input-group">
+                    <div class="input-field" id="namefield">
+                        <i class="fa-solid fa-user"></i>
+                        <input type="text" id="name" placeholder="Name" name="name">
+                    </div>
+                    <div class="input-field" id="emailfield">
+                        <i class="fa-solid fa-envelope"></i>
+                        <input type="email" id="email" placeholder="Email" name="email">
+                    </div>
+                    <div class="input-field" id="passfield">
+                        <i class="fa-solid fa-lock"></i>
+                        <input type="password" id="password" placeholder="Password" name="password">
+                        
+                    </div>
+                    {% if mesage is defined and mesage%}
+                        <div class="alert" >{{mesage}}</div>
+                        {% endif %}
+                </div>
+                <div class="btn-field">
+                    <button type="button" id="signupbtn">Sign Up</button>
+                    <button type="button" id="signinbtn"class="disable">Sign In</button>
+                    <button type="submit">Submit Details</button>
+                </div>
+            </form>
+        </div>
+        <div id="content">
+            <img src="./static/images/logo2.png" alt="logo" id="logo">
+        </div>
+    </div>
+
+    <script>
+        let signupbtn= document.getElementById("signupbtn")
+let signinbtn= document.getElementById("signinbtn")
+let namefield= document.getElementById("namefield")
+let title= document.getElementById("title")
+
+signinbtn.onclick= function(){
+   namefield.style.maxHeight="0";
+   title.innerHTML="Sign In";
+   signupbtn.classList.add("disable");
+   signinbtn.classList.remove("disable");
+}
+signupbtn.onclick= function(){
+   namefield.style.maxHeight="60px";
+   title.innerHTML="Sign Up";
+   signupbtn.classList.remove("disable");
+   signinbtn.classList.add("disable");
+}
+//
+        function validateForm() {
+            // Get form input values
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value.trim();
+
+            // Validate name
+            // if (name === '') {
+            //     alert('Please enter your name.');
+            //     return false;
+            // }
+
+            // Validate email
+            if (email === '' || !email.includes('@') || !email.includes(".")) {
+                alert('Please enter valid email.');
+                return false;
+            }
+            // Validate password
+            if (password === '' || password.length < 8 || !/[a-zA-Z]/.test(password) || !/\d/.test(password)) {
+                alert('Please enter a valid password.');
+                return false;
+            }
+            return true;
+        }
+    
+    </script>
+</body>
+</html>
